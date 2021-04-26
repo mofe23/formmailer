@@ -1,0 +1,2 @@
+bottle==0.12.19
+pydantic[dotenv,email]==1.8.1

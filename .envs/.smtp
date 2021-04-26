@@ -1,0 +1,4 @@
+RELAY_HOST=smtp.office365.com
+RELAY_PORT=587
+RELAY_USERNAME="jane@example.com"
+RELAY_PASSWORD="Password"

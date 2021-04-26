@@ -1,0 +1,26 @@
+{
+  "template": "https://github.com/steadysense/cookiecutter-pypackage/",
+  "commit": "06ab0a86e1607518c47769e442b01e324bf5d181",
+  "context": {
+    "cookiecutter": {
+      "full_name": "Moritz Federspiel",
+      "email": "moritz.federspiel@steadysense.at",
+      "github_username": "mofe23",
+      "github_org": "steadysense",
+      "github_account": "steadysense",
+      "project_name": "formmailer",
+      "project_slug": "formmailer",
+      "project_short_description": "Sends emails from form POST requests",
+      "pypi_username": "mofe23",
+      "version": "0.1.0",
+      "use_pytest": "y",
+      "use_pypi_deployment_with_travis": "n",
+      "add_pyup_badge": "y",
+      "command_line_interface": "No command-line interface",
+      "create_author_file": "n",
+      "open_source_license": "Apache Software License 2.0",
+      "_template": "https://github.com/steadysense/cookiecutter-pypackage/"
+    }
+  },
+  "directory": null
+}

@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  formmailer:
+    build:
+      context: .
+      dockerfile: ./compose/local/Dockerfile
+    image: formailer_local
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app:delegated
+    environment:
+      - "FORMMAILER_SENDER=${NAME} <${EMAIL}>"
+    env_file:
+      - .envs/.formmailer
+    command: ["python3", "src/formmailer/__main__.py"]
+  mail:
+    image: bytemark/smtp
+    restart: always
+    environment:
+      - "RELAY_USERNAME=${EMAIL}"
+      - "RELAY_PASSWORD=${EMAIL_PASSWORD}"
+    env_file:
+      - .envs/.smtp
