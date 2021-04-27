@@ -1,7 +1,6 @@
 import logging
 import smtplib
 import sys
-import typing
 from email.message import EmailMessage
 
 from pydantic import NameEmail
@@ -10,14 +9,20 @@ logger = logging.getLogger(__name__)
 
 
 def compose(
-    *, recipients: typing.List[NameEmail], subject: str, content: str, sender: NameEmail
+    *,
+    content: str,
+    subject: str,
+    recipients: NameEmail,
+    sender: NameEmail,
+    reply_to: NameEmail,
 ) -> EmailMessage:
     email = EmailMessage()
     email.set_content(content)
 
     email["Subject"] = subject
-    email["From"] = str(sender)
-    email["To"] = str(recipients[0])
+    email["From"] = NameEmail(name=reply_to.name, email=sender.email)
+    email["To"] = str(recipients)
+    email["Reply-To"] = str(reply_to)
 
     return email
 

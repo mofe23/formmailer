@@ -69,10 +69,11 @@ def send_email():
     try:
         cfg = Config()
         email = mail.compose(
-            recipients=[form.recipient],
-            subject=form.subject,
             content=form.message,
-            sender=cfg.sender,
+            subject=form.subject,
+            recipients=form.recipient,
+            sender=cfg.from_email,
+            reply_to=form.recipient,
         )
         mail.send(email)
     except smtplib.SMTPException as e:
