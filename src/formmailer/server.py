@@ -71,9 +71,9 @@ def send_email():
         email = mail.compose(
             content=form.message,
             subject=form.subject,
-            recipients=form.recipient,
-            sender=cfg.from_email,
             reply_to=form.recipient,
+            recipients=cfg.recipient,
+            sender=cfg.sender,
         )
         mail.send(email)
     except smtplib.SMTPException as e:

@@ -28,8 +28,8 @@ class Config(BaseSettings):
     listen: str = "0.0.0.0"
     port: int = 8080
     debug: bool = False
-    from_email: NameEmail = "FormMailer Bot <noreply@formmailer.io>"
-    to_email: NameEmail = "FormMailer Bot <noreply@formmailer.io>"
+    sender: NameEmail = "FormMailer Sender <sender@formmailer.io>"
+    recipient: NameEmail = "FormMailer Recipient <recipient@formmailer.io>"
     smtp_host: str = "mail"
 
     __instance__: typing.Optional["Config"] = None

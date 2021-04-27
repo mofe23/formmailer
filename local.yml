@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: ./compose/local/Dockerfile
     image: formailer_local
+    depends_on:
+      - mail
     ports:
       - "8080:8080"
     volumes:
@@ -21,6 +23,6 @@ services:
     restart: always
     environment:
       - "RELAY_USERNAME=${SENDER_EMAIL}"
-      - "RELAY_PASSWORD=$(SENDER_PASSWORD}"
+      - "RELAY_PASSWORD=${SENDER_PASSWORD}"
     env_file:
       - .envs/.smtp
